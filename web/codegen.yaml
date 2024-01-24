@@ -1,0 +1,12 @@
+overwrite: true
+schema: http://localhost:3001/graphql
+documents: 'api.graphql'
+generates:
+  ./graphql/generated.ts:
+    config:
+      scalars:
+        DateTime: string
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-document-nodes

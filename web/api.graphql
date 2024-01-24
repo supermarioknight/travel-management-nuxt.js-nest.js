@@ -1,0 +1,101 @@
+# travels
+
+query Travels($page: Int!, $rows: Int!, $searchTerm: String) {
+  travels(page: $page, rows: $rows, searchTerm: $searchTerm) {
+    items {
+      id
+      name
+      slug
+      isPublic
+      numberOfDays
+    }
+    count
+  }
+}
+
+query Travel($id: String!) {
+  travel(id: $id) {
+    id
+    name
+    slug
+    description
+    numberOfDays
+    isPublic
+    natureMood
+    relaxMood
+    historyMood
+    cultureMood
+    partyMood
+  }
+}
+
+mutation CreateTravel($data: CreateTravelInput!) {
+  createTravel(data: $data) {
+    id
+  }
+}
+
+mutation UpdateTravel($data: UpdateTravelInput!) {
+  updateTravel(data: $data) {
+    id
+  }
+}
+
+mutation DeleteTravel($id: String!) {
+  deleteTravel(id: $id)
+}
+
+# tours
+
+query ToursByTravel($travelSlug: String!, $page: Int!, $rows: Int!) {
+  toursByTravel(travelSlug: $travelSlug, page: $page, rows: $rows) {
+    items {
+      id
+      name
+      startingDate
+      endingDate
+      price
+      users {
+        id
+      }
+    }
+    count
+  }
+}
+
+query Tour($id: String!) {
+  tour(id: $id) {
+    id
+    name
+    startingDate
+    endingDate
+    price
+    users {
+      id
+    }
+  }
+}
+
+mutation CreateTour($data: CreateTourInput!) {
+  createTour(data: $data) {
+    id
+  }
+}
+
+mutation UpdateTour($data: UpdateTourInput!) {
+  updateTour(data: $data) {
+    id
+  }
+}
+
+mutation DeleteTour($id: String!) {
+  deleteTour(id: $id)
+}
+
+mutation ApplyTour($data: ApplyTourInput!) {
+  applyTour(data: $data)
+}
+
+mutation RevokeTour($data: RevokeTourInput!) {
+  revokeTour(data: $data)
+}

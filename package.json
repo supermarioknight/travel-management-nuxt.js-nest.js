@@ -1,0 +1,14 @@
+{
+  "name": "travel-management-nuxt.js-nest.js",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "db": "cd api && cp .env.example .env && yarn && yarn db:migrate && yarn db:seed --class=\"MainSeeder\" && cd ..",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}
